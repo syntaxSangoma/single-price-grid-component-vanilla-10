@@ -1,0 +1,304 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap');
+
+/* || REST */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* || VARIABLES */
+:root {
+    /* COLORS */
+    --BODY-BG: #E6EFF5;
+    --CARD-BG: #FFF;
+    --SECT1-BG: #FFF;
+    --SECT2-BG: #2AB3B1;
+    --SECT3-BG: #4ABFBD;
+    --TITLE-CLR: #2AB3B1;
+    --SECT1-CTA-CLR: #C0DF33;
+    --SECT2-CTA-CLR: #FFFFFF;
+    --DESCRIPTION-CLR: #9AA7BE;
+    --SUB-HEADING-CLR: #FFFFFF;
+    --PACKAGE-PRICE-CLR: #FFFFFF;
+    --PACKAGE-DURATION-CLR: hsla(0, 0%, 100%, 0.50);
+    --CTA-BUTTON-BG: #C0DF33;
+    --CTA-BUTTON-BG-HVR: #9EBF2C;
+    --CTA-BUTTON-CLR: #FFF;
+    --REASON-CLR: hsla(0, 0%, 100%, 0.75);
+
+    /* SHADOWS */
+    --CTA-BTN-SHADOW: 0px 10px 10px 0px hsla(0, 0%, 0%, 0.0973);
+    --CARD-SHADOW: 0px 15px 30px 0px hsla(212, 100%, 34%, 0.1488);
+
+    /* TYPOGRAPHY */
+    --FF: "Karla", sans-serif;
+
+    /* TYPOGRAPHY - LETTER-SPACING - SHARED */
+    --SUB-HEADING-LS-SHARED: -0.0138rem;
+    --PACKAGE-PRICE-LS-SHARED: -0.025rem;
+    --PACKAGE-DURATION-LS-SHARED: -0.0125rem;
+    --SECT2-CTA-LS-SHARED: -0.0125rem;
+    --CTA-BUTTON-LS-SHARED: -0.0125rem;
+    --REASON-LS-SHARED: -0.0106rem;
+
+    /* TYPOGRAPHY - LETTER-SPACING - MOBILE */
+    --TITLE-CLR-LS-MOB: -0.0156rem;
+    --SECT1-CTA-LS-MOB: -0.0119rem;
+    --DESCRIPTION-LS-MOB: -0.0106rem;
+
+    /* TYPOGRAPHY - LETTER-SPACING - DESKTOP */
+    --TITLE-CLR-LS-DSK: -0.0187rem;
+    --SECT1-CTA-LS-DSK: -0.0138rem;
+    --DESCRIPTION-LS-DSK: -0.0125rem;
+
+    /* TYPOGRAPHY - SHARED */
+    --SUB-HEADING-SHARED: bold 1.125rem var(--FF);
+    --PACKAGE-PRICE-SHARED: bold 2rem var(--FF);
+    --PACKAGE-DURATION-SHARED: normal 1rem/1.625rem var(--FF);
+    --SECT2-CTA-SHARED: normal 1rem/1.625rem var(--FF);
+    --CTA-BUTTON-SHARED: bold 1rem var(--FF);
+    --REASON-SHARED: normal .875rem/1.25rem var(--FF);
+
+    /* TYPOGRAPHY - MOBILE */
+    --TITLE-CLR-MOB: bold 1.25rem var(--FF);
+    --SECT1-CTA-MOB: bold .9375rem/1.25rem var(--FF);
+    --DESCRIPTION-MOB: normal .875rem/1.625rem var(--FF);
+
+    /* TYPOGRAPHY - DESKTOP */
+    --TITLE-CLR-DSK: bold 1.5rem var(--FF);
+    --SECT1-CTA-DSK: bold 1.125rem var(--FF);
+    --DESCRIPTION-DSK: normal 1rem/1.625rem var(--FF);
+}
+
+/* || UTILITY CLASSES */
+.offscreen {
+    position: absolute;
+    left: -10000px;
+}
+
+.nowrap {
+    white-space: nowrap;
+}
+
+.center {
+    text-align: center;
+}
+
+/* MOBILE FIRST DESIGN */
+/* || GENERAL STYLES */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    max-width: 100%;
+    overflow-x: hidden;
+    background-color: var(--BODY-BG);
+    display: grid;
+    place-content: center;
+}
+
+h1,
+h2 {
+    margin: 0;
+    padding: 0;
+    font-size: inherit;
+    font-weight: normal;
+}
+
+a:any-link {
+    text-decoration: none;
+}
+
+/* || PRICE-CARD */
+.price-card {
+    background-color: var(--CARD-BG);
+    width: 311px;
+    min-height: 722px;
+    border-radius: 5px;
+    box-shadow: var(--CARD-SHADOW);
+    margin: 4.5rem 2rem 3.875rem;
+    overflow: hidden;
+
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 36.98% 31.58% 31.44%;
+    grid-template-areas:
+        "sect1"
+        "sect2"
+        "sect3"
+    ;
+}
+
+/* || PRICE-CARD-SECTION1 */
+.price-card__sect1 {
+    grid-area: sect1;
+    background-color: var(--SECT1-BG);
+    padding: 1.75rem 1.5rem 2rem;
+}
+
+.price-card__heading {
+    color: var(--TITLE-CLR);
+    font: var(--TITLE-CLR-MOB);
+    letter-spacing: var(--TITLE-CLR-LS-MOB);
+    margin-bottom: 1.5rem;
+}
+
+.price-card__cta-sect1 {
+    color: var(--SECT1-CTA-CLR);
+    font: var(--SECT1-CTA-MOB);
+    letter-spacing: var(--SECT1-CTA-LS-MOB);
+    max-width: 263px;
+    margin-bottom: 1rem;
+}
+
+.price-card__description {
+    color: var(--DESCRIPTION-CLR);
+    font: var(--DESCRIPTION-MOB);
+    letter-spacing: var(--DESCRIPTION-LS-MOB);
+    max-width: 263px;
+}
+
+/* || PRICE-CARD-SECTION2 */
+.price-card__sect2 {
+    grid-area: sect2;
+    background-color: var(--SECT2-BG);
+    padding: 1.5rem;
+}
+
+.price-card__sub-heading {
+    color: var(--SUB-HEADING-CLR);
+    font: var(--SUB-HEADING-SHARED);
+    letter-spacing: var(--SUB-HEADING-LS-SHARED);
+    margin-bottom: 1.125rem;
+}
+
+.price-card__package-group {
+    display: flex;
+    align-items: center;
+    gap: .6875rem;
+    margin-bottom: .25rem;
+}
+
+.price-card__package-price {
+    color: var(--PACKAGE-PRICE-CLR);
+    font: var(--PACKAGE-PRICE-SHARED);
+    letter-spacing: var(--PACKAGE-PRICE-LS-SHARED);
+}
+
+.price-card__package-duration {
+    color: var(--PACKAGE-DURATION-CLR);
+    font: var(--PACKAGE-DURATION-SHARED);
+    letter-spacing: var(--PACKAGE-DURATION-LS-SHARED);
+}
+
+.price-card__cta-sect2 {
+    color: var(--SECT2-CTA-CLR);
+    font: var(--SECT2-CTA-SHARED);
+    letter-spacing: var(--SECT2-CTA-LS-SHARED);
+    margin-bottom: 1.625rem;
+}
+
+.price-card__cta-button {
+    display: block;
+    width: 263px;
+    height: 48px;
+    background-color: var(--CTA-BUTTON-BG);
+    border-radius: 5px;
+    box-shadow: var(--CTA-BTN-SHADOW);
+    color: var(--CTA-BUTTON-CLR);
+    font: var(--CTA-BUTTON-SHARED);
+    line-height: 48px;
+    letter-spacing: var(--CTA-BUTTON-LS-SHARED);
+    padding: 0rem 6.375rem 0rem;
+}
+
+/* || PRICE-CARD-SECTION3 */
+.price-card__sect3 {
+    grid-area: sect3;
+    background-color: var(--SECT3-BG);
+    padding: 1.5rem 3.0625rem 1.5rem 1.5rem;
+}
+
+.price-card__reasons {
+    list-style-type: none;
+    display: grid;
+    flex-flow: column;
+}
+
+.price-card__reason {
+    font: var(--REASON-SHARED);
+    color: var(--REASON-CLR);
+    letter-spacing: var(--REASON-LS-SHARED);
+}
+
+@media only screen and (min-width: 992px) {
+
+    /* || PRICE-CARD */
+    .price-card {
+        width: 635px;
+        min-height: 475px;
+        border-radius: 8px;
+        margin: 10.1875rem 25.125rem 10.125rem 25.1875rem;
+
+        display: grid;
+        grid-template-columns: 49.92% 50.08%;
+        grid-template-rows: 45.47% 54.53%;
+        grid-template-areas:
+            "sect1 sect1"
+            "sect2 sect3"
+        ;
+    }
+
+    /* || PRICE-CARD-SECTION1 */
+    .price-card__sect1 {
+        padding: 2.5rem;
+    }
+
+    .price-card__heading {
+        font: var(--TITLE-CLR-DSK);
+        letter-spacing: var(--TITLE-CLR-LS-DSK);
+    }
+
+    .price-card__cta-sect1 {
+        font: var(--SECT1-CTA-DSK);
+        letter-spacing: var(--SECT1-CTA-LS-DSK);
+        max-width: 367px;
+        margin-bottom: .6875rem;
+    }
+
+    .price-card__description {
+        font: var(--DESCRIPTION-DSK);
+        letter-spacing: var(--DESCRIPTION-LS-DSK);
+        max-width: 555px;
+    }
+
+    /* || PRICE-CARD-SECTION2 */
+    .price-card__sect2 {
+        padding: 2.5rem 2.4375rem 2.4375rem 2.5rem;
+    }
+
+    .price-card__cta-button {
+        width: 237px;
+        padding: 0rem 5.5625rem 0rem;
+        transition: background-color 0.5s ease;
+        cursor: pointer;
+    }
+
+    .price-card__cta-button:hover {
+        background-color: var(--CTA-BUTTON-BG-HVR);
+    }
+
+    /* || PRICE-CARD-SECTION3 */
+    .price-card__sect3 {
+        padding: 2.5rem;
+    }
+}
